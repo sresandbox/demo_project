@@ -156,8 +156,6 @@ python app.py
 
 ---
 
----
-
 ## Screenshots
 
 ![Web UI Screenshot](docs/screenshot.png) <!-- Add a screenshot if available -->
