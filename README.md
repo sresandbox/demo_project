@@ -1,10 +1,19 @@
-## GitHub Gist API
+## 1. Project Objective
 
+This project builds a simple HTTP web server API that:
+
+- Listens for requests like:  
+  `http://localhost:8080/<username>`
+- Fetches the public gists of that GitHub user (using the GitHub API).
+- Returns them in a clean, JSON response format.
+- Is packaged in a Docker container for easy deployment.
+- Includes an automated test to prove it works (using GitHub’s sample user `octocat`).
+---
+## GitHub Gist API
 A simple Flask-based API and web interface to fetch and display public GitHub gists for any user.
 
 ---
-
-## 📝 What is a GitHub Gist?
+## What is a GitHub Gist?
 
 A Gist is a simple way to share code snippets, notes, or text on GitHub.  
 Think of it like a “mini repository” that’s super lightweight.
@@ -15,9 +24,9 @@ Think of it like a “mini repository” that’s super lightweight.
 - Gists have their own URLs (just like repos).
 
 Example public gist:  
-👉 https://gist.github.com/octocat/9257657
+https://gist.github.com/octocat/9257657
 
-### 📌 Gist vs Repository
+### Gist vs Repository
 
 | Feature      | Repository (Repo)                  | Gist                                 |
 |--------------|------------------------------------|--------------------------------------|
@@ -25,19 +34,6 @@ Example public gist:
 | Collaboration| Supports branches, PRs, issues     | Basic comments only                  |
 | URL          | github.com/user/repo               | gist.github.com/user/gist_id         |
 | Visibility   | Public / Private                   | Public / Secret                      |
-
----
-
-## 1. 🎯 Project Objective
-
-This project builda a simple HTTP web server API that:
-
-- Listens for requests like:  
-  `http://localhost:8080/<username>`
-- Fetches the public gists of that GitHub user (using the GitHub API).
-- Returns them in a clean, JSON response format.
-- Is packaged in a Docker container for easy deployment.
-- Includes an automated test to prove it works (using GitHub’s sample user `octocat`).
 
 ---
 
@@ -80,13 +76,6 @@ docker build -t gist-api:latest .
 ```sh
 docker run -itd -p 8080:8080 gist-api:latest
 ```
-
-**Optionally, set a GitHub token for higher API rate limits:**
-
-```sh
-docker run -itd -p 8080:8080 -e GITHUB_TOKEN=your_token gist-api:latest
-```
-
 ---
 
 ### 2. Run Locally (Python)
@@ -108,6 +97,31 @@ source venv/bin/activate
 pip install -r requirements.txt
 python app.py
 ```
+
+---
+
+### 3. Run the Tests
+
+#### On **Windows**:
+
+```sh
+venv\Scripts\activate
+python -m pytest
+```
+
+#### On **Linux/macOS**:
+
+```sh
+source venv/bin/activate
+python -m pytest
+```
+
+Or simply:
+
+```sh
+pytest
+```
+if `pytest` is installed globally or in your virtual environment.
 
 ---
 
@@ -161,7 +175,3 @@ python app.py
 ![Web UI Screenshot](docs/screenshot.png) <!-- Add a screenshot if available -->
 
 ---
-
-## Credits
-
-Created by [Vivek Ranjan].
