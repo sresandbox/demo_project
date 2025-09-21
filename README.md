@@ -172,6 +172,12 @@ if `pytest` is installed globally or in your virtual environment.
 
 ## Screenshots
 
-![Web UI Screenshot](docs/screenshot.png) <!-- Add a screenshot if available -->
+![Web UI Screenshot](docs/screenshot_1.png) 
+
+---
+![Web UI Screenshot](docs/screenshot_2.png) 
+
+---
+![Web UI Screenshot](docs/screenshot_3.png) 
 
 ---
