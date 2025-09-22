@@ -94,6 +94,11 @@ jobs:
       - name: Build Docker image
         run: docker build -t flask-demo-app .
 
+      - name: Scan Docker image for vulnerabilities
+        uses: aquasecurity/trivy-action@v0.16.2
+        with:
+          image-ref: flask-demo-app
+
       - name: Run Docker container
         run: |
           docker run -d -p 8080:8080 --name flask-demo-app flask-demo-app
