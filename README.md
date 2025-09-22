@@ -76,6 +76,25 @@ docker build -t gist-api:latest .
 ```sh
 docker run -itd -p 8080:8080 gist-api:latest
 ```
+**Test API:**
+
+```sh
+curl http://localhost:8080/octocat
+```
+## Screenshots
+**Using CLI:**
+![Web UI Screenshot](docs/screenshot_4.png) 
+
+---
+**Using WEB UI:**
+![Web UI Screenshot](docs/screenshot_1.png) 
+
+---
+![Web UI Screenshot](docs/screenshot_2.png) 
+
+---
+![Web UI Screenshot](docs/screenshot_3.png) 
+
 ---
 
 ### 2. Run Locally (Python)
@@ -125,35 +144,6 @@ if `pytest` is installed globally or in your virtual environment.
 
 ---
 
-## API
-
-- **GET /**  
-  Returns a web UI for searching gists.
-
-- **GET /<username>**  
-  Returns JSON with public gists for the given GitHub username.
-
-**Example:**  
-`GET /octocat`
-
-```json
-{
-  "user": "octocat",
-  "count": 2,
-  "gists": [
-    {
-      "id": "12345",
-      "html_url": "https://gist.github.com/...",
-      "description": "My gist",
-      "files": ["file1.py", "file2.txt"],
-      "created_at": "2023-01-01T00:00:00Z"
-    }
-  ]
-}
-```
-
----
-
 ## Environment Variables
 
 - `GITHUB_TOKEN` (optional): GitHub API token for increased rate limits.
@@ -167,17 +157,5 @@ if `pytest` is installed globally or in your virtual environment.
 - Flask
 - Gunicorn (for production)
 - See `requirements.txt` for dependencies.
-
----
-
-## Screenshots
-
-![Web UI Screenshot](docs/screenshot_1.png) 
-
----
-![Web UI Screenshot](docs/screenshot_2.png) 
-
----
-![Web UI Screenshot](docs/screenshot_3.png) 
 
 ---
