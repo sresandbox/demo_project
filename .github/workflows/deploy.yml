@@ -98,5 +98,12 @@ jobs:
         run: |
           docker run -d -p 8080:8080 --name flask-demo-app flask-demo-app
 
+      - name: Wait for Flask app to start
+        run: sleep 10
+
+      - name: Query API with GitHub user 'octocat'
+        run: |
+          curl -sSf http://localhost:8080/octocat | tee response.json
+
       - name: Notify deployment
         run: echo "Flask application deployed in Docker container!"
