@@ -84,7 +84,7 @@ jobs:
             echo "No tests directory found, skipping."
           fi
 
-  deploy:
+  imagescan:
     runs-on: ubuntu-latest
     needs: test
     steps:
@@ -98,6 +98,16 @@ jobs:
         uses: aquasecurity/trivy-action@v0.16.2
         with:
           image-ref: flask-demo-app
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [test, imagescan]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build Docker image
+        run: docker build -t flask-demo-app .
 
       - name: Run Docker container
         run: |
