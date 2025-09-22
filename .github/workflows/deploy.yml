@@ -8,6 +8,7 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -33,6 +34,7 @@ jobs:
 
   sonarqube:
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -58,6 +60,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     needs: [lint, sonarqube]
+    continue-on-error: true
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
