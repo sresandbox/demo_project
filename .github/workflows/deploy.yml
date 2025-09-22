@@ -95,7 +95,7 @@ jobs:
         run: docker build -t flask-demo-app .
 
       - name: Scan Docker image for vulnerabilities
-        uses: aquasecurity/trivy-action@v0.16.2
+        uses: aquasecurity/trivy-action@v0.19.0
         with:
           image-ref: flask-demo-app
 
